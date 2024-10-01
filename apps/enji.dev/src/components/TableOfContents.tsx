@@ -29,11 +29,12 @@ function TableOfContentsLink({
   );
 }
 
-interface TableOfContensProps {
-  items: Array<TTableOfContentsItem>;
+interface TableOfContentsProps {
+  items: Array<TTableOfContentsItem>; // 'items' is required
 }
 
-function TableOfContents({ items = [] }: TableOfContensProps) {
+function TableOfContents({ items }: TableOfContentsProps) {
+  // Removed default value
   const isScrolled = useOnScroll(200);
   const { currentVisibles } = useScrollSpy();
 
@@ -51,7 +52,7 @@ function TableOfContents({ items = [] }: TableOfContensProps) {
     >
       <div
         className={clsx(
-          'border-divider-light flex items-center justify-between border-b py-3 px-5 text-sm font-bold',
+          'border-divider-light flex items-center justify-between border-b px-5 py-3 text-sm font-bold',
           'dark:border-divider-dark'
         )}
       >
